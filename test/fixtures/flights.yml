@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+sfo_nyc:
+  from_airport: sfo
+  to_airport: nyc
+  departure: 2019-07-24 19:44:47
+  duration: 1
+
+nyc_sfo:
+  from_airport: nyc
+  to_airport: sfo
+  departure: 2019-07-24 20:44:47
+  duration: 1
