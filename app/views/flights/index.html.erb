@@ -1,0 +1,25 @@
+<div class="search">
+  <%= form_tag flights_path, method: :get do |form| %>
+    <div class="">
+      <%= label :from_airport_id, "From" %>
+      <%= select_tag :from_airport_id, options_for_select(@airport_options, @query_params["from_airport_id"]) %>
+      <%= label_tag :to_airport_id, "To" %>
+      <%= select_tag :to_airport_id, options_for_select(@airport_options, @query_params[:to_airport_id])  %>
+    </div>
+    <div class="">
+      <%= label_tag :departure, "Date" %>
+      <%= select_tag :departure, options_for_select(@date_options, @query_params[:departure]) %>
+      <%= label_tag :number_passengers, "Number of passengers" %>
+      <%= select_tag :number_passengers, options_for_select([[:one, 1], [:two, 2], [:three, 3], [:four, 4]]) %>
+    </div>
+  
+    <%= submit_tag "Search" %>
+  <% end %>
+</div>
+<% unless @flights.empty? %>
+<div class="results">
+  <% @flights.each do |flight| %>
+    <%= flight.from_airport.code %> > <%= flight.to_airport.code %> @ <%= flight.departure %> <br>
+  <% end %>
+</div>
+<% end %>
