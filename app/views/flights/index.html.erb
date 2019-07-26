@@ -12,14 +12,10 @@
       <%= label_tag :number_passengers, "Number of passengers" %>
       <%= select_tag :number_passengers, options_for_select([[:one, 1], [:two, 2], [:three, 3], [:four, 4]]) %>
     </div>
-  
+
     <%= submit_tag "Search" %>
   <% end %>
 </div>
 <% unless @flights.empty? %>
-<div class="results">
-  <% @flights.each do |flight| %>
-    <%= flight.from_airport.code %> > <%= flight.to_airport.code %> @ <%= flight.departure %> <br>
-  <% end %>
-</div>
+  <%= render 'flight_select_form' %>
 <% end %>

@@ -1,0 +1,27 @@
+<div class="results">
+  <%= form_tag flights_path, method: :get do %>
+  <table>
+    <thead>
+      <tr>
+        <td>From</td><td>To</td><td>Departure Date</td><td>Departure Time</td><td>Arrival Time</td><td> </td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @flights.each do |flight| %>
+      <tr>
+        <% flight_html_id = "flight" + flight.id.to_s %>
+        <td><%= label_tag flight_html_id, flight.from_airport.code %></td>
+        <td><%= label_tag flight_html_id, flight.to_airport.code %></td>
+        <td><%= label_tag flight_html_id, flight.departure.to_date %></td>
+        <td><%= label_tag flight_html_id, flight.departure.to_s(:time) %></td>
+        <td><%= label_tag flight_html_id, (flight.departure + flight.duration).to_s(:time) %></td>
+
+        <td><%= radio_button_tag :flight_id, flight.id, false, :id => flight_html_id %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= hidden_field_tag :number_passengers, @query_params[:number_passengers] %>
+  <%= submit_tag "Select Flight" %>
+  <% end %>
+</div>
