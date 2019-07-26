@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: First
+  email: firstpassenger@example.com
+  booking: one
+
+two:
+  name: Second
+  email: secondpassenger@example.com
+  booking: two
+
+three:
+  name: Third
+  email: thirdpassenger@example.com
+  booking: two
