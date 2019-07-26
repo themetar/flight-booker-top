@@ -11,4 +11,8 @@ class FlightTest < ActiveSupport::TestCase
     assert_equal @flight.from_airport, airports(:sfo)
     assert_equal @flight.to_airport, airports(:nyc)
   end
+
+  test "relations to bookings should work" do
+    assert_equal @flight.bookings.count, 2
+  end
 end
