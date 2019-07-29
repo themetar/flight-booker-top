@@ -1,2 +1,8 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<h1>Booking</h1>
+<p>Flight: <%= @booking.flight_id %></p>
+Passengers:
+<ul>
+  <% @booking.passengers.each do |p| %>
+  <li><%= p.name %>, <%= p.email %></li>
+  <% end %>
+</ul>

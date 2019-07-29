@@ -22,4 +22,15 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
     assert_select 'input[type=submit]'
   end
 
+  test "create should create a booking and passengers" do
+    assert_difference 'Booking.count', 1 do
+      assert_difference 'Passenger.count', 2 do
+        post bookings_path(params: { booking: {flight_id: @flight.id, number_passengers: 2,
+                                        passengers_attributes: {
+                                          '0' => {name: "abc", email: "efg" },
+                                          '1' => {name: "zxc", email: "vbn" } }
+                                      } })
+      end
+    end
+  end
 end
