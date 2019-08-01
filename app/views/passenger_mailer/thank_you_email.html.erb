@@ -1,0 +1,4 @@
+<h1>You booked your ticket</h1>
+<p><%= @passenger.name %>, thank you for choosing our flight booker.</p>
+<p>Your ticket for flight #<%= @booking.flight_id %> is booked. You can see your booking <%= link_to "here", booking_url(@booking) %></p>
+<p>Have a good flight!</p>

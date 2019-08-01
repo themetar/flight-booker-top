@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.create(booking_params)
+    PassengerMailer.thank_you_email(@booking.passengers.first, @booking).deliver_now
     redirect_to @booking
   end
 
